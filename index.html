@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Finder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: center;
+            border-bottom: 1px solid;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+        }
+
+        .container h1 {
+            text-align: center;
+        }
+
+        .container input {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Number Table</h1>
+        <input type="number" placeholder="Enter a number...">
+        <button type="submit">Result</button>
+        <div id="output"></div>
+    </div>
+    <script>
+        let a = document.querySelector("input");
+        let btn = document.querySelector("button");
+        let show = document.querySelector("#output");
+        btn.onclick = () => {
+            let th1 = document.createElement("th");
+            let th2 = document.createElement("th");
+            let table = document.createElement("table");
+            let tr = document.createElement("tr");
+            th1.textContent = "Multiplier";
+            th2.textContent = "Result";
+            tr.append(th1);
+            tr.append(th2);
+            table.append(tr)
+
+            for (let i = 1; i <= 10; i++) {
+                let tr = document.createElement("tr");
+                let td1 = document.createElement("td");
+                let td2 = document.createElement("td");
+                td1.textContent = i;
+                td2.textContent = i * a.value;
+                tr.append(td1);
+                tr.append(td2);
+                show.innerHTML="";
+                table.append(tr)
+            }
+            show.append(table);
+        }
+    </script>
+</body>
+
+</html>
